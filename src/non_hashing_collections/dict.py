@@ -1,3 +1,5 @@
+"""Defines"""
+
 from collections.abc import MutableMapping
 from typing import Iterable, Mapping, TypeVar, overload
 
@@ -94,5 +96,5 @@ class NonHashingDict(MutableMapping[K, V]):
             del self._values[idx]
 
     def __repr__(self) -> str:
-        items = ", ".join(f"{k!r}: {v!r}" for k, v in self.items())
+        items = ", ".join(f"({k!r}, {v!r})" for k, v in self.items())
         return f"{type(self).__name__}([{items}])"
